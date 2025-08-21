@@ -377,7 +377,7 @@ const OS1000Onboarding: React.FC<OS1000OnboardingProps> = ({
 
       {/* Progress Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
-        {['intro', 'personas', 'mission', 'fleet'].map((p, index) => (
+        {['intro', 'personas', 'mission', 'fleet'].map((p) => (
           <div
             key={p}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${

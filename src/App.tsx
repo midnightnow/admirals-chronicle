@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useChronicleStore } from './stores/chronicleStore'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'

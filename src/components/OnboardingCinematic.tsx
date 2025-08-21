@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useChronicleStore } from '../stores/chronicleStore'
 
 const OnboardingCinematic: React.FC = () => {
-  const { admiralName, callSign, advanceOnboardingStep } = useChronicleStore()
+  const { callSign, advanceOnboardingStep } = useChronicleStore()
   const [currentScene, setCurrentScene] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
 

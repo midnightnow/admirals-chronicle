@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useChronicleStore } from '../stores/chronicleStore'
-import OnboardingCinematic from './OnboardingCinematic'
 import OS1000Onboarding from './OS1000Onboarding'
 import './OnboardingCinematic.css'
 
