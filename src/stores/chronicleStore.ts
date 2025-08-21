@@ -84,7 +84,7 @@ export interface ChronicleState {
   // Actions
   gainExperience: (amount: number) => void
   unlockShip: (ship: Omit<Ship, 'id' | 'acquired'>) => void
-  addShip: (shipClass: ShipClass) => void
+  addShip: (shipClass: ShipClass) => string
   setActiveShip: (shipId: string | null) => void
   completeAcademy: () => void
   updateHelmMastery: (level: number) => void
@@ -317,6 +317,7 @@ export const useChronicleStore = create<ChronicleState>()(
       
       // Additional ship management
       addShip: (shipClass) => {
+        let newShipId = ''
         set((state) => {
           const newShip: Ship = {
             id: `ship-${shipClass}-${Date.now()}`,
@@ -327,12 +328,15 @@ export const useChronicleStore = create<ChronicleState>()(
             experience: 0
           }
           
+          newShipId = newShip.id
+          
           return {
             ships: [...state.ships, newShip],
             fleetSize: state.ships.length + 1,
             activeShip: state.activeShip || newShip.id
           }
         })
+        return newShipId
       },
       
       updateRank: () => {
