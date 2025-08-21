@@ -3,71 +3,14 @@ import { useChronicleStore } from './stores/chronicleStore'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import OnboardingWizard from './components/OnboardingWizard'
+import OpenBetaLanding from './components/OpenBetaLanding'
+import Unit1Module from './components/Unit1Module'
 import './App.css'
 
 // Module Components
 const AcademyModule = () => (
   <div className="module-container academy-module">
-    <div className="module-header">
-      <h1>🎓 The Academy - OS1000 Flight School</h1>
-      <p className="module-subtitle">Master the fundamental laws of the digital universe</p>
-    </div>
-    
-    <div className="module-content">
-      <div className="welcome-section">
-        <h2>Welcome to Flight School, Cadet!</h2>
-        <p>
-          Before you can command a fleet or weave consciousness into reality, 
-          you must first understand the foundational principles that govern all digital systems.
-        </p>
-        
-        <div className="academy-features">
-          <div className="feature-card">
-            <div className="feature-icon">📚</div>
-            <h3>Interactive Learning</h3>
-            <p>Master operating system concepts through hands-on tutorials and examples</p>
-          </div>
-          
-          <div className="feature-card">
-            <div className="feature-icon">🧪</div>
-            <h3>Code Challenges</h3>
-            <p>Practice your skills with real programming exercises</p>
-          </div>
-          
-          <div className="feature-card">
-            <div className="feature-icon">🗺️</div>
-            <h3>Knowledge Graph</h3>
-            <p>Visualize connections between concepts</p>
-          </div>
-          
-          <div className="feature-card">
-            <div className="feature-icon">🤖</div>
-            <h3>AI Tutoring</h3>
-            <p>Get personalized guidance from your AI mentors</p>
-          </div>
-        </div>
-        
-        <div className="academy-actions">
-          <a 
-            href="http://localhost:5173"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            🚀 Enter OS1000 Academy
-          </a>
-          <button 
-            className="btn btn-secondary"
-            onClick={() => {
-              // Simulate academy completion for demo
-              useChronicleStore.getState().completeAcademy()
-            }}
-          >
-            🎓 Mark Academy Complete (Demo)
-          </button>
-        </div>
-      </div>
-    </div>
+    <Unit1Module />
   </div>
 )
 
@@ -424,6 +367,11 @@ function App() {
         </div>
       </div>
     )
+  }
+
+  // Show landing page for new visitors who haven't started or completed onboarding
+  if (!hasCompletedOnboarding && !isOnboardingActive) {
+    return <OpenBetaLanding />
   }
 
   return (
